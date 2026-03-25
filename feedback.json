@@ -1,0 +1,14 @@
+{
+  "reasons": [
+    { "id": "incorrect", "label": "Information is incorrect" },
+    { "id": "not_helpful", "label": "Response is not helpful" },
+    { "id": "irrelevant", "label": "Response is irrelevant to my question" },
+    { "id": "inappropriate", "label": "Language or tone is inappropriate" },
+    { "id": "other", "label": "Other issue" }
+  ],
+  "title": "Provide Feedback",
+  "description": "We're sorry that response wasn't helpful. Please let us know what was wrong so we can improve.",
+  "submitLabel": "Submit Feedback",
+  "cancelLabel": "Cancel",
+  "placeholder": "Or tell us more about the issue..."
+}
