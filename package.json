@@ -16,8 +16,9 @@
 		"new:screen": "bun scripts/scaffold-screen.ts"
 	},
 	"dependencies": {
+		"@esbuild-plugins/node-globals-polyfill": "^0.2.3",
 		"@fingerprintjs/fingerprintjs": "^5.0.1",
-		"@hookform/resolvers": "^5.2.2",
+		"@hookform/resolvers": "^3.9.1",
 		"@radix-ui/react-avatar": "^1.1.11",
 		"@radix-ui/react-checkbox": "^1.3.3",
 		"@radix-ui/react-collapsible": "^1.1.12",
@@ -62,7 +63,7 @@
 		"sonner": "^2.0.7",
 		"tailwind-merge": "^3.4.0",
 		"ua-parser-js": "^2.0.9",
-		"zod": "^4.3.5",
+		"zod": "^3.23.8",
 		"zustand": "^5.0.10"
 	},
 	"devDependencies": {
@@ -95,13 +96,13 @@
 		"postcss": "^8.5.6",
 		"prettier": "^3.8.0",
 		"prettier-plugin-tailwindcss": "^0.7.2",
-		"sonarqube-scanner": "^4.3.4",
+		"sonarqube-scanner": "^4.3.5",
 		"tailwindcss": "^4.1.18",
 		"tw-animate-css": "^1.4.0",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "^8.53.0",
 		"vite": "^7.3.1",
-		"vite-plugin-node-polyfills": "^0.24.0",
+		"vite-plugin-node-polyfills": "^0.26.0",
 		"vite-plugin-top-level-await": "^1.6.0",
 		"vite-tsconfig-paths": "^6.0.4",
 		"vitest": "^4.0.17"

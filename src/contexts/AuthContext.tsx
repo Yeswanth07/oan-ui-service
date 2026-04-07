@@ -3,6 +3,7 @@ import { jwtVerify, importSPKI, JWTPayload } from 'jose';
 import apiService from '@/lib/api-service';
 import { getBrowserInfo } from '@/lib/utils';
 import { setTelemetryUserData } from '../lib/telemetry';
+import { env } from '@/config/env';
 
 // Constants
 const JWT_STORAGE_KEY = 'auth_jwt';
@@ -130,6 +131,21 @@ hwIDAQAB
     const initAuth = async () => {
       try {
         setIsLoading(true);
+
+        // DEV BYPASS: skip JWT fetch in development mode
+        if (env.mode === "development") {
+          setUser({
+            authenticated: true,
+            username: "Dev User",
+            email: "dev@localhost",
+            mobile: "0000000000",
+            is_guest_user: true,
+          });
+          setTelemetryUserData({ username: "Dev User", email: "dev@localhost" });
+          setIsLoading(false);
+          return;
+        }
+
         // Import the public key
         const importedPublicKey = await importSPKI(publicKeyPEM, 'RS256');
         setPublicKey(importedPublicKey);
