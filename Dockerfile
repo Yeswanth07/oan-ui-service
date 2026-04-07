@@ -14,7 +14,7 @@ COPY ./ ./
 # Write build args to .env so Vite can pick them up during build
 RUN echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}" > .env && \
     echo "VITE_API_KEY=${VITE_API_KEY}" >> .env && \
-    echo "MODE=${MODE}" >> .env
+    echo "VITE_MODE=${MODE}" >> .env
 
 RUN npm run build
 
