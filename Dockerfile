@@ -1,9 +1,21 @@
 # Stage 1: Build
 FROM node:22-alpine AS build
+
+# Accept build-time arguments for Vite environment variables
+ARG VITE_API_BASE_URL
+ARG VITE_API_KEY
+ARG MODE=development
+
 WORKDIR /usr/local/app
 COPY package.json package-lock.json ./
 RUN npm install --legacy-peer-deps
 COPY ./ ./
+
+# Write build args to .env so Vite can pick them up during build
+RUN echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}" > .env && \
+    echo "VITE_API_KEY=${VITE_API_KEY}" >> .env && \
+    echo "MODE=${MODE}" >> .env
+
 RUN npm run build
 
 # Stage 2: Serve
