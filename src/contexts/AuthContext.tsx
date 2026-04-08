@@ -123,6 +123,21 @@ hwIDAQAB
       }
     } catch (error) {
       console.error('Failed to fetch auth token from /chat/auth:', error);
+      
+      // GRACEFUL DEV FALLBACK: If backend is unreachable, inject a mock user so UI isn't blocked
+      if (env.mode === "development") {
+        console.warn("Backend unreachable. Injecting DEV BYPASS user.");
+        setUser({
+          authenticated: true,
+          username: "Dev User",
+          email: "dev@localhost",
+          mobile: "0000000000",
+          is_guest_user: true,
+        });
+        setTelemetryUserData({ username: "Dev User", email: "dev@localhost" });
+      } else {
+        setUser(null);
+      }
     }
   }, []);
 
