@@ -132,20 +132,6 @@ hwIDAQAB
       try {
         setIsLoading(true);
 
-        // DEV BYPASS: skip JWT fetch in development mode
-        if (env.mode === "development") {
-          setUser({
-            authenticated: true,
-            username: "Dev User",
-            email: "dev@localhost",
-            mobile: "0000000000",
-            is_guest_user: true,
-          });
-          setTelemetryUserData({ username: "Dev User", email: "dev@localhost" });
-          setIsLoading(false);
-          return;
-        }
-
         // Import the public key
         const importedPublicKey = await importSPKI(publicKeyPEM, 'RS256');
         setPublicKey(importedPublicKey);
